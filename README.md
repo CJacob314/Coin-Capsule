@@ -1,4 +1,4 @@
-# Hello! Welcome to Bitcoin-Locker,
+# Hello! Welcome to Coin Capsule,
 ## My Project for the 2021 Fintech Hackathon
 
 There are two folders here
