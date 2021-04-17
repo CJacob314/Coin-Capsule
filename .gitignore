@@ -1,0 +1,12 @@
+# Things I do not want to accidentally commit
+
+*.jks
+**/*.jks
+*.pem
+**/*.pem
+*.wallet
+**/*.wallet
+*.spvchain
+**/*.spvchain
+*.pwd
+**/*.pwd
