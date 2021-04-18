@@ -5,14 +5,10 @@
  */
 package com.cjacob314.apps;
 
-import org.bitcoin.Secp256k1Context;
-import org.bitcoinj.core.BlockChain;
 import org.bitcoinj.core.NetworkParameters;
-import org.bitcoinj.core.PeerGroup;
 import org.bitcoinj.kits.WalletAppKit;
 import org.bitcoinj.params.RegTestParams;
 import org.bitcoinj.script.Script;
-import org.bitcoinj.wallet.KeyChainGroup;
 import org.bitcoinj.wallet.Wallet;
 
 import java.io.File;
@@ -39,22 +35,11 @@ public class BitcoinWallet {
 			// Does get to here
 			if(params == RegTestParams.get())
 				bitcoin.connectToLocalHost();
-			System.out.println("connected to localhost");
-			bitcoin.setBlockingStartup(false).setUserAgent("BitcoinLocker", "0.1");
-			System.out.println("setBlocking and setUserAgent");
+			bitcoin.setBlockingStartup(false).setUserAgent("BitcoinLocker", "0.3");
 
-//			PeerGroup pg = new PeerGroup(params, bitcoin.chain());
-//			pg.addWallet(bitcoin.wallet());
-//			pg.start();
 			bitcoin.startAsync().awaitRunning();
-			System.out.println("bitcoin service is running...");
-//			System.err.println("startAsync called and awaited");
-//			bitcoin.wallet().getIssuedReceiveKeys().forEach(k -> {
-//				System.out.println(k.getPublicKeyAsHex());
-//			});
+			JLogger.log("bitcoin service is now running...");
 
-//			System.out.println(bitcoin.wallet().freshReceiveAddress().toString());
-//			System.out.println(bitcoin.wallet().getKeyChainSeed().toString());
 		} catch(URISyntaxException e) {
 			e.printStackTrace();
 		}

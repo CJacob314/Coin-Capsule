@@ -4,7 +4,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
-  <meta name="keywords" content="Bitcoin Locker, Send some bitcoin">
+  <meta name="keywords" content="Coin Capsule, Send some bitcoin">
   <meta name="description" content="">
   <meta name="page_type" content="np-template-header-footer-from-plugin">
   <title>Home</title>
@@ -21,7 +21,7 @@
 		"@type": "Organization",
 		"name": "",
 		"url": "index.html",
-		"logo": "images/bd7b1ce87a55229b41a6e6ba512a171a11f3f1490dd784c9dbf596ff3ca6694aa181a4e19b1866ffe62f776456569fb38f1cd7892f7ebf4d119dd6_1280.jpg"
+		"logo": "images/coin-capsule-logo.png"
 }</script>
   <style>
     /* The Modal (background) */
@@ -105,8 +105,16 @@
 
     .modal-header {
       padding: 2px 16px;
-      background-color: #5cb85c;
-      color: white;
+      background-color: #3857bd;
+      color: #dedede;
+    }
+
+    #successModal .modal-header {
+      background-color: #00e600;
+    }
+
+    #failureModal .modal-header {
+      background-color: #db545a;
     }
 
     .modal-body {
@@ -143,8 +151,8 @@
 <body class="u-body">
   <header class="u-clearfix u-header u-header" id="sec-5d93">
     <div class="u-clearfix u-sheet u-sheet-1">
-      <a href="images/bd7b1ce87a55229b41a6e6ba512a171a11f3f1490dd784c9dbf596ff3ca6694aa181a4e19b1866ffe62f776456569fb38f1cd7892f7ebf4d119dd6_1280.jpg" class="u-image u-logo u-image-1" data-image-width="1280" data-image-height="1280">
-        <img src="images/bd7b1ce87a55229b41a6e6ba512a171a11f3f1490dd784c9dbf596ff3ca6694aa181a4e19b1866ffe62f776456569fb38f1cd7892f7ebf4d119dd6_1280.jpg" class="u-logo-image u-logo-image-1" data-image-width="77">
+      <a href="images/coin-capsule-logo.png" class="u-image u-logo u-image-1" data-image-width="1280" data-image-height="1280">
+        <img src="images/coin-capsule-logo.png" class="u-logo-image u-logo-image-1" data-image-width="77">
       </a>
       <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
         <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
@@ -165,10 +173,10 @@
         </div>
         <div class="u-custom-menu u-nav-container">
           <ul class="u-nav u-unstyled u-nav-1">
-            <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="Home.html" style="padding: 10px 20px;">Home</a>
+            <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="/" style="padding: 10px 20px;">Home</a>
             </li>
-            <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="About.html" style="padding: 10px 20px;">About</a>
-            </li>
+            <!-- <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="About.html" style="padding: 10px 20px;">About</a>
+            </li> -->
           </ul>
         </div>
         <div class="u-custom-menu u-nav-container-collapse">
@@ -177,8 +185,6 @@
               <div class="u-menu-close"></div>
               <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
                 <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html" style="padding: 10px 20px;">Home</a>
-                </li>
-                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.html" style="padding: 10px 20px;">About</a>
                 </li>
               </ul>
             </div>
@@ -192,8 +198,9 @@
     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
       <div class="u-align-left u-container-style u-group u-white u-group-1">
         <div class="u-container-layout u-container-layout-1">
-          <h1 class="u-text u-title u-text-1">Bitcoin Locker</h1>
-          <p class="u-large-text u-text u-text-variant u-text-2">Put your bitcoin away for some time and let it gain value! No temptations to spend or sell.</p>
+          <h1 class="u-text u-title u-text-1">Coin Capsule</h1>
+          <p class="u-large-text u-text u-text-variant u-text-2">Tempted to sell or send? Lock it away securely with Coin Capsule!</p>
+          <p><i>Please note: your returned amount will be exactly 0.000050 BTC less (very little) than what you sent us. This is due to the miner's fees applied.</i></p>
           <a href="Home.html#sec-0595" data-page-id="54834657" class="u-btn u-button-style u-palette-2-base u-btn-1">Lets GO<br>
           </a>
         </div>
@@ -212,8 +219,9 @@
   <section class="u-align-center u-clearfix u-section-2" id="sec-0595">
     <div class="u-clearfix u-sheet u-sheet-1">
       <h2 class="u-text u-text-1">INPUT DETAILS to schedule your pay date</h2>
+      <p>Please note that the <u>default date</u> is in the Chicago timezone. Due to the server's current functionality, any dates which are "yesterday" or earlier <i><u>for Chicago</u></i> will <strong>not</strong> be accepted.</p>
       <div class="u-expanded-width u-form u-form-1">
-        <form action="/" method="POST" class="u-clearfix u-form-horizontal u-form-spacing-15 u-inner-form" style="padding: 15px;" source="custom">
+        <form id="subTransForm" action="/" method="POST" class="u-clearfix u-form-horizontal u-form-spacing-15 u-inner-form" style="padding: 15px;" source="custom">
           <div class="u-form-group u-form-name">
             <label for="name-ef64" class="u-form-control-hidden u-label"></label>
             <input type="text" placeholder="Transaction Hash" id="name-ef64" name="completed_transaction_hash" class="u-border-1 u-border-grey-30 u-input u-input-rectangle" required="">
@@ -229,11 +237,10 @@
           <div class="u-form-group u-form-submit">
             <a href="#" class="u-btn u-btn-submit u-button-style">Submit To Process<br>
             </a>
-            <input type="submit" value="submit" class="u-form-control-hidden">
+            <input id="subTrans" type="submit" value="submit" class="u-form-control-hidden">
           </div>
           <div class="u-form-send-message u-form-send-success">#FormSendSuccess</div>
           <div class="u-form-send-error u-form-send-message">#FormSendError</div>
-          <input type="hidden" value="" name="recaptchaResponse">
         </form>
       </div>
     </div>
@@ -247,11 +254,43 @@
     <div class="modal-content">
       <div class="modal-header">
         <span id="closeModal" class="close">&times;</span>
-        <h2>Send Your Bitcoins To</h2>
+        <h2>Send Your Bitcoin Here</h2>
       </div>
       <div class="modal-body">
         <p class="toChange">change here</p>
-        <p>Copy this address down now!</p>
+        <p>This address will only be shown once, and only right here to you. This ensures no one else can steal your Bitcoin!</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="successModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span id="closeModal" class="close">&times;</span>
+        <h2>Success</h2>
+      </div>
+      <div class="modal-body">
+        <p class="toChange">change here</p>
+        <!-- <p>This address will only be shown once, and only right here to you. This ensures no one else can steal your Bitcoin!</p> -->
+      </div>
+    </div>
+
+  </div>
+
+  <div id="failureModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span id="closeModal" class="close">&times;</span>
+        <h2>Failure</h2>
+      </div>
+      <div class="modal-body">
+        <p class="toChange">change here</p>
+        <!-- <p>This address will only be shown once, and only right here to you. This ensures no one else can steal your Bitcoin!</p> -->
       </div>
     </div>
 
@@ -267,33 +306,115 @@
 
   <script class="u-script" type="text/javascript" src="jquery.js"></script>
   <script>
+    function pendingOrZeroModal() {
+      // window.onclick = function (event) {
+      //   $('.modal').hide();
+      // }
+      $('#failureModal').find('.modal-body').find(".toChange").text('Your transaction has not yet been confirmed sufficiently by the blockchain. Please try again later.');
+      $('#failureModal').show();
+    }
+    function notFoundModal() {
+      // window.onclick = function (event) {
+      //   $('.modal').hide();
+      // }
+      $('#failureModal').find('.modal-body').find(".toChange").text('Your transaction was not found among the transactions sent to Coin Capsule! Did you send to an address received from the "Get A Personal Address" button?');
+      $('#failureModal').show();
+    }
+
+    function invalidDateModal() {
+      $('#failureModal').find('.modal-body').find(".toChange").text('This date is invalid! The date must be on today (which will return your money in minutes) or a later date.');
+      $('#failureModal').show();
+    }
+
+    // jQuery.extend({
+    //   post: function (url, data, callback, type) {
+    //     if (jQuery.isFunction(data)) {
+    //       type = type || callback;
+    //       callback = data;
+    //       data = {};
+    //     }
+
+    //     return jQuery.ajax({
+    //       type: "POST",
+    //       url: url,
+    //       data: data,
+    //       success: callback,
+    //       dataType: type
+    //     });
+    //   }
+    // });
+
+    function convertTZ(date, tzString) {
+      return new Date((typeof date === "string" ? new Date(date) : date).toLocaleString("en-US", { timeZone: tzString }));
+    }
+
     $(document).ready(function () {
+      $('#returnDate').val(convertTZ(new Date(), 'America/Chicago').getDate());
+
       var now = new Date();
       var day = ("0" + now.getDate()).slice(-2);
       var month = ("0" + (now.getMonth() + 1)).slice(-2);
       var today = now.getFullYear() + "-" + (month) + "-" + (day);
       $('#returnDate').val(today);
-      $('#closeModal').click(function () {
-        $('#myModal')[0].style.display = "none";
+      $('.close').click(function () {
+        $('.modal').hide();
       });
       $('#subTrans').click(function () {
         // console.log('completed transaction form has told to send and post');
-        $.post('/', $('#subTransForm').serialize() + "\r\n\r\n").done(function (ret) {
-          //TODO show some other modal that it has been scheduled!
+        // jQuery.post('/', $('#subTransForm').serialize(), function (ret) {
+        //   // Other modal
+        //   window.onclick = function (event) {
+        //     $('.modal').hide();
+        //   }
+        //   if (ret == 'pendingOrZero') {
+        //     pendingOrZeroModal();
+        //   }
+        //   else if (ret == 'notFound') {
+        //     notFoundModal();
+        //   }
+        //   else {
+        //     $('#successModal').find('.modal-body').find(".toChange").text('Your bitcoin will be delivered back to ' + ret);
+        //     $('#successModal').show();
+        //   }
+        // }, 'application/json');
+        console.log('no stringify: ' + $('#subTransForm').serialize());
+        $.post('/', $('#subTransForm').serialize()).done(function (ret) {
+          // Other modal
+          // window.onclick = function (event) {
+          //   $('.modal').hide();
+          // }
+          if (String(ret).replace("\n", '').includes('pendingOrZero')) {
+            pendingOrZeroModal();
+          }
+          else if (String(ret).replace("\n", '').includes('notFound')) {
+            notFoundModal();
+          }
+          else if (String(ret).replace("\n", '').includes('invalidDate')) {
+            invalidDateModal();
+          }
+          else {
+            $('#successModal').find('.modal-body').find(".toChange").text('Your bitcoin will be delivered back to ' + ret);
+            $('#successModal').show();
+          }
         });
       });
       $('#subTransForm').submit(function (e) {
         e.preventDefault(), e.stopPropagation();
       });
       $('#request_addr').click(function () {
-        $.post('/', "request_addr=true\r\n").done(function (addr) {
-          window.onclick = function (event) {
-            if (event.target == $('#myModal')[0]) {
-              $('#myModal')[0].style.display = "none";
-            }
-          }
+        jQuery.post('/', "request_addr=true", function (addr) {
+          // window.onclick = function (event) {
+          //   $('.modal').hide();
+          // }
           $('#myModal').find('.modal-body').find(".toChange").text('Send your bitcoins to this address: ' + addr);
-          $('#myModal')[0].style.display = "block";
+          $('#myModal').show();
+        }, 'application/x-www-form-urlencoded');
+        $.post('/', "request_addr=true").done(function (addr) {
+          // window.onclick = function (event) {
+          //   $('.modal').hide();
+          // }
+          $('#myModal').find('.modal-body').find(".toChange").text('Send your bitcoins to this address: ' + addr);
+          $('#myModal').show();
         });
       });
     });

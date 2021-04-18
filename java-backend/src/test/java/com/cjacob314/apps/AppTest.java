@@ -5,12 +5,12 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 /**
- * Unit test for simple App.
+ * Tests to come!
  */
 public class AppTest 
 {
     /**
-     * Rigorous Test :-)
+     * If this fails, something is very wrong!
      */
     @Test
     public void shouldAnswerWithTrue()
