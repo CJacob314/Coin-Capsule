@@ -12,5 +12,5 @@ There are two folders here
 
 ## Credits to
 - [https://nicepage.com/](Nicepage) for most of the HTML and CSS. A lot went unused and could be trimmed if I had additional time.
-- [https://bitcoinj.org/](Bitcoinj), a library for Java to interact with the Bitcoin protocol
-- [https://stackoverflow.com/a/56794765/7359826](Matthias Braun) for the very barebones start to my custom HTTP server in Java
+- [https://bitcoinj.org/](Bitcoinj), a library for Java to interact with the Bitcoin protocol 
+- Matthias Braun here https://stackoverflow.com/a/56794765/7359826, for the very barebones skeleton start to my custom HTTP server in Java
