@@ -6,10 +6,11 @@ There are two folders here
 - java-backend for the **ENTIRE** backend server source, all the way down to the HTTP requests, so no Nginx or Apache here!
 
 # Some TODO's
-- [ ] Make error message when running on Windows
-- [ ] Add sending history and transaction history to a SQL database (if not, just use .csv)
+~~- [ ] Make error message when running on Windows~~
+- [x] Added detailed history logged to .log files with exact times
 - [ ] Setup emailing via SMTP from jacobcohen.tech to jacbo@jacobcohen.info when a serious error happens (REALLY rare but maybe) 
 
 ## Credits to
 - [https://nicepage.com/](Nicepage) for most of the HTML and CSS. A lot went unused and could be trimmed if I had additional time.
 - [https://bitcoinj.org/](Bitcoinj), a library for Java to interact with the Bitcoin protocol
+- [https://stackoverflow.com/a/56794765/7359826](Matthias Braun) for the very barebones start to my custom HTTP server in Java
