@@ -14,3 +14,5 @@ There are two folders here
 - [https://nicepage.com/](Nicepage) for most of the HTML and CSS. A lot went unused and could be trimmed if I had additional time.
 - [https://bitcoinj.org/](Bitcoinj), a library for Java to interact with the Bitcoin protocol 
 - Matthias Braun here https://stackoverflow.com/a/56794765/7359826, for the very barebones skeleton start to my custom HTTP server in Java
+----
+## Website, <ins>hosted **completely on a no-library self-built web server**</ins>: https://coincapsule.co
