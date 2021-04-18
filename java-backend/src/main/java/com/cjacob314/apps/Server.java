@@ -59,7 +59,7 @@ public class Server {
 						var btcWallet = BitcoinWallet.getWallet();
 						Address toAddr = Address.fromString(btcWallet.getParams(), items[0]);
 						JLogger.log("Received order to send " + items[1] + "BTC to " + items[0]);
-						long toSend = (long)(Double.parseDouble(items[1]) * 100000000L - 9300);
+						long toSend = (long)(Double.parseDouble(items[1]) * 100000000L - 1250);
 						//System.out.println("toSend: " + toSend);
 						SendRequest req = SendRequest.to(toAddr, Coin.valueOf(toSend));
 						//System.out.println("request made");
