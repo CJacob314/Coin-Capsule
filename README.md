@@ -6,7 +6,7 @@ There are two folders here
 - java-backend for the **ENTIRE** backend server source, all the way down to the HTTP requests, so no Nginx or Apache here!
 
 # Some TODO's
-~~- [ ] Make error message when running on Windows~~
+- [x] ~~Make error message when running on Windows~~ Not necessary
 - [x] Added detailed history logged to .log files with exact times
 - [ ] Setup emailing via SMTP from jacobcohen.tech to jacbo@jacobcohen.info when a serious error happens (REALLY rare but maybe) 
 
