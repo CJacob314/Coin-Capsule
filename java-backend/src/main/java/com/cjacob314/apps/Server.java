@@ -59,15 +59,27 @@ public class Server {
 						var btcWallet = BitcoinWallet.getWallet();
 						Address toAddr = Address.fromString(btcWallet.getParams(), items[0]);
 						JLogger.log("Received order to send " + items[1] + "BTC to " + items[0]);
-						SendRequest req = SendRequest.to(toAddr, Coin.valueOf(5000L));
-						req.ensureMinRequiredFee = false;
-						req.recipientsPayFees = true;
-						btcWallet.sendCoins(req);
-						JLogger.log("Order to send has been sent to the blockchain.");
+						long toSend = (long)(Double.parseDouble(items[1]) * 100000000L - 9300);
+						//System.out.println("toSend: " + toSend);
+						SendRequest req = SendRequest.to(toAddr, Coin.valueOf(toSend));
+						//System.out.println("request made");
+						req.ensureMinRequiredFee = true;
+						req.recipientsPayFees = false;
+						//System.out.println("booleans set");
+						Wallet.SendResult res = btcWallet.sendCoins(req);
+						//System.out.println("btcWallet.sendCoins(req) completed");
+						String hashId = res.tx.getTxId().toString();
+						//System.out.println("Got hash of request");
+						var future = res.broadcast.broadcast();
+						//System.out.println("received future");
+						JLogger.log("Order to send " + toSend + "Satoshis has been sent to the blockchain with hash " + hashId + ".");
+
+						var transaction = future.get(); // Make this thread wait
+						JLogger.log("Transaction sent with hash" + transaction.getTxId().toString() + ".");
 					}
 				} catch(IOException e) {
 					e.printStackTrace();
-				} catch(InsufficientMoneyException e) {
+				} catch(InsufficientMoneyException | InterruptedException | ExecutionException e) {
 					e.printStackTrace();
 				}
 
@@ -213,8 +225,6 @@ public class Server {
 											foundTransaction[0] = true;
 
 											long transValue = t.getValueSentToMe(btcWallet).value;
-											System.out.println(transValue);
-											System.out.println(t.isPending());
 											if(transValue > 0 && !t.isPending()) {
 												UUID jobID = UUID.randomUUID();
 												// TODO Add to a SQL database or .csv file
@@ -237,7 +247,7 @@ public class Server {
 													Date date = format.parse(postedData.get("date"));
 													sendingDate.set(date);
 													Date yesterday = new Date(new Date().getTime() - 86400000L);
-													System.out.println(LocalDateTime.now().toString());
+													//System.out.println(LocalDateTime.now().toString());
 													if(!date.after(yesterday)) {
 														JLogger.log("INVALID DATE!");
 														rejectReason[0] = "invalidDate";
@@ -270,7 +280,7 @@ public class Server {
 									});
 
 									if(rejectReason[0] == null) {
-										rejectReason[0] = postedData.get("rec_addr") + " on " + sendingDate.get().toString() + ". Enjoy and good luck!";
+										rejectReason[0] = postedData.get("rec_addr") + " on " + sendingDate.get().toString().replace("00:00:00 CDT", "") + ". Enjoy and good luck!";
 									}
 									byte[] bytes = (rejectReason[0] + "\r\n").getBytes(StandardCharsets.UTF_8);
 									String resHeader = "HTTP/1.1 200 OK\r\n" +
