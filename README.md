@@ -15,4 +15,5 @@ There are two folders here
 - [https://bitcoinj.org/](Bitcoinj), a library for Java to interact with the Bitcoin protocol 
 - Matthias Braun here https://stackoverflow.com/a/56794765/7359826, for the very barebones skeleton start to my custom HTTP server in Java
 ----
-## Website, <ins>hosted **completely on a no-library self-built web server**</ins>: https://coincapsule.co
+*Note that the below website is not only not running anymore, but I no longer own the domain name.*
+##### Website, <ins>hosted **completely on a no-library self-built web server**</ins>: https://coincapsule.co
